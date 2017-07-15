@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Web Components with vanilla.js</title>
+
+	<!-- Importing my component -->
+	<link rel="import" href="./components.html">
+
+	<style>
+		div{
+			width: 100%;
+			display: flex;
+			overflow-x: auto;
+			align-items: center;
+		}
+
+		my-card{
+			display: inline-block;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<my-card></my-card>
+		<my-card></my-card>
+		<my-card></my-card>
+	</div>
+</body>
+</html>

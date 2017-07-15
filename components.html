@@ -1,0 +1,58 @@
+<!-- Init my component with tag template -->
+<template id="template">
+	
+	<!-- style of the my component -->
+	<style>
+		*{margin: 0;padding: 0; font-family: Helvetica, sans-serif;}
+		section{width: 320px; height: auto; margin: 20px; border: 1px solid #ccc; }
+		section header{width: 100%; height: 300px; overflow: hidden;}
+		section header figure{width: 100%;}
+		section header figure img{width: 100%;height: 100%;transition: all .4s linear;}
+		section header:hover  img{transform: scale(1.2); transition: all .4s linear;}
+		section div{padding: 10px; box-sizing: border-box;}
+		section div h2{margin-bottom: 10px;}
+		section div p{display: block;}
+
+	</style>
+
+	<!-- Init Component -->
+	<section>
+		<header>
+			<figure>
+				<img src="https://costaricajs.co/img/CostaRicaJS-Sloth.png" alt="my image">
+			</figure>
+		</header>
+
+		<div>
+			<h2>My Title</h2>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint beatae distinctio placeat illo ducimus, quo dolore rerum quia impedit cum cupiditate aliquam assumenda ipsum hic nemo velit. Ipsum, fugiat, explicabo.</p>
+		</div>
+	</section>
+
+</template>
+
+
+
+
+<!-- Building my component -->
+<script>
+	class Card extends HTMLElement {
+
+		constructor () {
+			super()
+			this.current = document.currentScript.ownerDocument
+		}
+
+		connectedCallback() {
+		   const _shadow   =  this.attachShadow({mode: 'open'}),
+				 _template =  this.current.querySelector('#template'),
+				 _instance = _template.content.cloneNode(true)
+
+		   _shadow.appendChild(_instance)
+		}
+		
+	}
+
+	window.customElements.define('my-card', Card)
+</script>
